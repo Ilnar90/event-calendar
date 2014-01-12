@@ -1,7 +1,9 @@
 Rustam::Application.routes.draw do
   get "pages/index"
 
+  resources :microposts
   devise_for :users
+
   
 
   # The priority is based upon order of creation:
