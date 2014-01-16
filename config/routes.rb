@@ -2,7 +2,7 @@ Rustam::Application.routes.draw do
   get "pages/index"
 
   devise_for :users
-  
+  resources :events
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

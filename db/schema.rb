@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140108084815) do
+ActiveRecord::Schema.define(:version => 20140114112408) do
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.boolean  "all_day"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string   "class_name"
+    t.boolean  "editable"
+    t.boolean  "start_editable"
+    t.boolean  "duration_editable"
+    t.string   "color"
+    t.string   "background_color"
+    t.string   "border_color"
+    t.string   "text_color"
+  end
+
+  create_table "microposts", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -26,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20140108084815) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "full_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
