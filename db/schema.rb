@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116143056) do
+ActiveRecord::Schema.define(:version => 20140117075918) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -59,13 +59,7 @@ ActiveRecord::Schema.define(:version => 20140116143056) do
     t.string   "background_color"
     t.string   "border_color"
     t.string   "text_color"
-  end
-
-  create_table "microposts", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "description"
   end
 
   create_table "users", :force => true do |t|
