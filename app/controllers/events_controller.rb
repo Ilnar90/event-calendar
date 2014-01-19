@@ -20,4 +20,9 @@ class EventsController < ApplicationController
       render 'edit'
     end  
   end 
+
+  def show
+    @event = Event.find(params[:id])
+    respond_with @event
+  end
 end  
