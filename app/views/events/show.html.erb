@@ -1,12 +1,15 @@
 <h1> show </h1>
 <div>
   <table>
-    <td>Title: <%= @event.title %></td>
-    <td>All_day: <%= @event.all_day %></td>
-    <td>Starts_at: <%= @event.starts_at %></td>
-    <td>Class name: <%= @event.class_name %></td>
-    <td>Editable: <%= @event.editable %></td>
-    <td>Start_editable: <%= @event.start_editable %></td>
+  	<tr>
+      <td>Title: <%= @event.title %></td>
+      <td>All_day: <%= @event.all_day %></td>
+      <td>Starts_at: <%= @event.starts_at %></td>
+      <td>Class name: <%= @event.class_name %></td>
+      <td>Editable: <%= @event.editable %></td>
+      <td>Start_editable: <%= @event.start_editable %></td>
+    </tr>
   <table>
 </div>
-<p><%= link_to "my calendar", dashboard_path %></p> 
+<p><%= link_to 'My calendar', dashboard_path %></p> 
+<p><%= link_to 'Edit this', edit_event_path(@event) %><p>
