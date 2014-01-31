@@ -4,7 +4,7 @@ Rustam::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
-  resources :events, only: [:index, :update, :edit, :show]
+  resources :events
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
