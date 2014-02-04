@@ -1,12 +1,17 @@
 class EventsController < ApplicationController
-  respond_to :html, :json
+  def new
+    @event = Event.new
+    respond_with @event
+  end
+
+  def create
+    @event = Event.create(params[:event])
+    redirect_to root_path
+  end
+
   def index
-    @events = Event.scoped
-    @events = Event.between(params['start'], params['end']) if params['start'] && params['end']
-    respond_with do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
+    @events = Event.all
+    respond_with @events
   end
 
   def edit
@@ -15,9 +20,9 @@ class EventsController < ApplicationController
   end
 
   def update
-  	@events = Event.find(params[:id])
-    if @events.update(events_params)
-      redirect_to @events
+  	@event = Event.find(params[:id])
+    if @event.update_attributes(params[:event])
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -27,4 +32,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     respond_with @event
   end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to root_path
+  end 
 end

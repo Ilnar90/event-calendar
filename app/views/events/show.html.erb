@@ -1,15 +1,39 @@
 <h1> show </h1>
-<div>
+
   <table>
-  	<tr>
-      <td>Title: <%= @event.title %></td>
-      <td>All_day: <%= @event.all_day %></td>
-      <td>Starts_at: <%= @event.starts_at %></td>
-      <td>Class name: <%= @event.class_name %></td>
-      <td>Editable: <%= @event.editable %></td>
-      <td>Start_editable: <%= @event.start_editable %></td>
-    </tr>
-  <table>
-</div>
-<p><%= link_to 'My calendar', dashboard_path %></p> 
+    <thead>
+      <th>Title</th>
+      <th>All day</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th>Class name</th>
+      <th>Editable</th>
+      <th>Start editable</th>
+      <th>Duration editable</th>
+      <th>Color</th>
+      <th>Background color</th>
+      <th>Border color</th>
+      <th>Text color</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+  	  <tr>
+        <td><%= @event.title %></td>
+        <td><%= @event.all_day %></td>
+        <td><%= @event.starts_at %></td>
+        <td><%= @event.ends_at %></td>
+        <td><%= @event.class_name %></td>
+        <td><%= @event.editable %></td>
+        <td><%= @event.start_editable %></td>
+        <td><%= @event.duration_editable %></td>
+        <td><%= @event.color %></td>
+        <td><%= @event.background_color %></td>
+        <td><%= @event.border_color %></td>
+        <td><%= @event.text_color %></td>
+        <td><%= @event.description %></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p><%= link_to 'My calendar', root_path %></p> 
 <p><%= link_to 'Edit this', edit_event_path(@event) %><p>
