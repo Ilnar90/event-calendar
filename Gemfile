@@ -10,6 +10,7 @@ gem "devise", "~>3.2.2"
 gem 'ice_cube'
 gem 'fullcalendar-rails'
 gem 'activeadmin'
+gem 'whenever', :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.

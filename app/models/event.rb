@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   attr_accessible :title, :all_day, :starts_at, :ends_at, :class_name, :editable,
-  :start_editable, :duration_editable, :color, :background_color, :border_color, :text_color, :description, :expose
+  :start_editable, :duration_editable, :color, :background_color, :border_color, :text_color, :description
   scope :between, lambda {|start_time, end_time|
    {:conditions => ["? < starts_at < ?", Event.format_date(start_time), Event.format_date(end_time)] }
   }
