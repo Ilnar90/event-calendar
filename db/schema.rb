@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20140117075918) do
     t.string   "background_color"
     t.string   "border_color"
     t.string   "text_color"
+    t.text     "shedule"
     t.string   "description"
   end
 

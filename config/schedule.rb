@@ -1,18 +1,15 @@
-# Use this file to easily define all of your cron jobs.
-#
-# It's helpful, but not entirely necessary to understand cron before proceeding.
-# http://en.wikipedia.org/wiki/Cron
-
-# Example:
-#
-# set :output, "/path/to/my/cron_log.log"
-#
- every 2.hours do
-   rake "some:great:rake:task"
+ every :day do
+   runner "Event.day"
  end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
 
-# Learn more: http://github.com/javan/whenever
+ every :week do
+   runner "Event.week"
+ end
+
+ every :month do
+   runner "Event.month"
+ end
+
+ every :year do
+   runner "Event.year"
+ end

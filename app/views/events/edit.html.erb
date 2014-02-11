@@ -8,6 +8,30 @@
    <%= f.label :all_day %><br />  
    <%= f.check_box :all_day %>  
   </div>  
+    <div class="control-group">
+      <%= label_tag "period_day", "every day", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'daily', @period == 'daily' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag "period_week", "every week", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'weekly', @period == 'weekly' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag "period_month", "every month", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'monthly', @period == 'monthly' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag "period_year", "every year", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'yearly', @period == 'yearly' %>
+      </div>
+    </div>
   <div class="field">  
    <%= f.label :starts_at %><br />  
    <%= f.datetime_select :starts_at %>  
@@ -15,38 +39,6 @@
   <div class="field">  
    <%= f.label :ends_at %><br />  
    <%= f.datetime_select :ends_at %>  
-  </div>
-  <div class="field">  
-   <%= f.label :class_name %><br />  
-   <%= f.text_field :class_name %>  
-  </div>
-  <div class="field">  
-   <%= f.label :editable %><br />  
-   <%= f.check_box :editable %>  
-  </div>
-  <div class="field">  
-   <%= f.label :start_editable %><br />  
-   <%= f.check_box :start_editable %>  
-  </div>
-  <div class="field">  
-   <%= f.label :duration_editable %><br />  
-   <%= f.check_box :duration_editable %>  
-  </div>
-  <div class="field">  
-   <%= f.label :color %><br />  
-   <%= f.text_field :color %>  
-  </div>
-  <div class="field">  
-   <%= f.label :background_color %><br />  
-   <%= f.text_field :background_color %>  
-  </div>
-  <div class="field">  
-   <%= f.label :border_color %><br />  
-   <%= f.text_field :border_color %>  
-  </div>
-  <div class="field">  
-   <%= f.label :text_color %><br />  
-   <%= f.text_field :text_color %>  
   </div>
   <div class="field">  
    <%= f.label :description %><br />  

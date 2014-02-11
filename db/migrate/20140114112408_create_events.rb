@@ -12,7 +12,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :color
       t.string :background_color
       t.string :border_color
-      t.string :text_color 
+      t.string :text_color
+      t.text :schedule 
     end
   end
 end

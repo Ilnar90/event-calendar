@@ -30,4 +30,5 @@ $(document).ready ->
           title: the_event.title,
           starts_at: "" + the_event.start,
           ends_at: "" + the_event.end,
+          schedule: "" + the_event.schedule
           description: the_event.description

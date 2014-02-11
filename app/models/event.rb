@@ -18,6 +18,23 @@ class Event < ActiveRecord::Base
     :allDay => self.all_day,
     :recurring => false,
     :url => Rails.application.routes.url_helpers.event_path(id),
-   }
+   }  
   end
+
+  def init_schedule(params) 
+    event_starts_at = params[:event_starts_at]
+    event_ends_at = params[:event_ends_at]
+    recurring_event = params[:recurring_event]
+    period = params[:period]
+
+    if recurring_event
+      schedule = IceCube::Schedule.new( event_starts_at, :end_time => event_ends_at ) do |s|
+        s.add_recurrence_rule IceCube::Rule.send(period).until(event_ends_at) 
+      end
+    else
+      schedule = IceCube::Schedule.new(event_starts_at) 
+    end 
+
+   # self.schedule = schedule.to_yaml
+  end 
 end

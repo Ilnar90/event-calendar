@@ -1,12 +1,18 @@
 class EventsController < ApplicationController
   def new
     @event = Event.new
-    respond_with @event
   end
 
   def create
-    @event = Event.create(params[:event])
-    redirect_to root_path
+    @event = Event.new
+    @event.title = params[:event_title]
+    #@event.user = current_user
+    @event.init_schedule(params)
+    if @event.save
+      redirect_to root_path, :flash => { :success => "Event was succesfully created" }
+    else
+      render action: "new" 
+    end
   end
 
   def index
