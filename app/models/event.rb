@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   attr_accessible :title, :all_day, :starts_at, :ends_at, :class_name, :editable,
-  :start_editable, :duration_editable, :color, :background_color, :border_color, :text_color, :description
+  :start_editable, :duration_editable, :color, :background_color, :border_color, :text_color, :description, :schedule
   scope :between, lambda {|start_time, end_time|
    {:conditions => ["? < starts_at < ?", Event.format_date(start_time), Event.format_date(end_time)] }
   }
@@ -35,6 +35,6 @@ class Event < ActiveRecord::Base
       schedule = IceCube::Schedule.new(event_starts_at) 
     end 
 
-   # self.schedule = schedule.to_yaml
+    self.schedule = schedule.to_yaml
   end 
 end

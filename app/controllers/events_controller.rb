@@ -16,8 +16,14 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
-    respond_with @events
+    @events_by_date = {}
+    range_to_show.each do |day|
+      @events_by_date[day] = []
+      Event.find_each do |event|
+        @events_by_date[day] << event if IceCube::Schedule.from_yaml(event.schedule).occurs_on? day
+      end
+    end  
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def edit
