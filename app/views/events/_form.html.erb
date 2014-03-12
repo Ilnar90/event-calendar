@@ -1,0 +1,73 @@
+<%= form_tag @event, :method => @method, :class => "form-horizontal" %>
+
+<% if @event.errors.any? %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <div class="control-group">
+    <%= label_tag :event_title, "Title", :class => "control-label" %>
+    <div class="controls">
+      <%= text_field_tag :event_title, @event.title, :placeholder => "email" %>
+    </div>  
+  </div>
+
+  <div class="control-group">
+    <%= label_tag :event_start_date, nil, :class => "control-label" %>
+    <div class="controls">
+      <%= text_field_tag :event_start_date, @begin_date, :class => 'date', :placeholder => "event start date" %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= label_tag "recurring_event", "Repeat this event", :class => "control-label" %>
+    <div class="controls">
+      <%= check_box_tag "recurring_event", nil, @recurring %>
+    </div>
+  </div>
+
+  <div class="period">
+    <div class="control-group">
+      <%= label_tag "period_day", "every day", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'daily', @period == 'daily' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag "period_week", "every week", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'weekly', @period == 'weekly' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag "period_month", "every month", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'monthly', @period == 'monthly' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag "period_year", "every year", :class => "control-label" %>
+      <div class="controls">
+        <%= radio_button_tag 'period', 'yearly', @period == 'yearly' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= label_tag :event_end_date, nil, :class => "control-label" %>
+      <div class="controls">
+        <%= text_field_tag :event_end_date, @end_date, :class => 'date' , :placeholder => "event date end" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to "Cancel", :root, :class => 'btn' %>
+    or 
+    <%= submit_tag("Save", :class => 'btn btn-primary')  %>
+  </div>

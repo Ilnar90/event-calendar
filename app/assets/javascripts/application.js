@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//= require fullcalendar
+//= require jquery.ui.all
+//= require gcal
+

@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
+  
+  respond_to :html, :json
+
   def new
     @event = Event.new
-    respond_with @event
   end
 
   def create
@@ -22,7 +24,15 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    respond_with @event
+    @method = :put
+    schedule  = IceCube::Schedule.from_yaml(@event.schedule)
+    @begin_date = schedule.start_time.to_s 
+    @end_date = schedule.end_time.to_s
+    @recurring = !schedule.recurrence_rules.empty? 
+    @period = ""
+    %w[daily weekly monthly yearly].each do |p|
+      @period = p if schedule.recurrence_rules.first.to_s.downcase.include? p   
+    end
   end
 
   def update

@@ -1,7 +1,6 @@
 Rustam::Application.routes.draw do
-  get "pages/index"
-
-  resources :microposts
+  
+  resources :events
   devise_for :users
 
   
