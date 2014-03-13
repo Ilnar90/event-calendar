@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+  class EventsController < ApplicationController
   
   respond_to :html, :json
 
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @event.title = params[:event_title]
     @event.user = current_user
+    @event.init_schedule(params)
     if @event.save
       redirect_to root_path, :flash => { :success => "Event was succesfully created" }
     else

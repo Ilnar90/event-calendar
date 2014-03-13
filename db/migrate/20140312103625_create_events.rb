@@ -4,6 +4,7 @@ class CreateEvents < ActiveRecord::Migration
       
       t.string :title
       t.text :schedule
+      
       t.timestamps
     end
   end
